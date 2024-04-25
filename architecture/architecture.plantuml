@@ -1,0 +1,12 @@
+@startuml
+
+actor User as u
+participant WeatherVane as wv
+participant "External Weather API" as api
+
+u -> wv: Submits address
+wv -> api: Requests current weather data
+api -> wv: Responds with weather data
+wv -> u: Returns properly formatted weather data for the given address
+
+@enduml
