@@ -1,12 +1,21 @@
 @startuml
 
-actor User as u
-participant WeatherVane as wv
+actor User
+participant WeatherVane
+database Cache
 participant "External Weather API" as api
 
-u -> wv: Submits address
-wv -> api: Requests current weather data
-api -> wv: Responds with weather data
-wv -> u: Returns properly formatted weather data for the given address
+User -> WeatherVane: Submits address
+WeatherVane -> Cache: Check if the given zip code is in the cache
+
+alt Cache hit
+	Cache -> WeatherVane: Pull weather data from the cache
+else Cache miss
+	WeatherVane -> api: Requests current weather data
+	api -> WeatherVane: Responds with weather data
+	WeatherVane -> Cache: Store response in the cache
+end
+
+WeatherVane -> User: Returns properly formatted weather data for the given address
 
 @enduml
