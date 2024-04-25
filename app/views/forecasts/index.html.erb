@@ -1,6 +1,7 @@
 <h1>WeatherVane Forecast</h1>
 
-<%= form_with do |form| %>
+<%# TODO: Extract into a partial %>
+<%= form_with url: "/forecast", local: true do |form| %>
   <%= form.label :zip, "Zip code:" %>
   <%= form.text_field :zip %>
   <%= form.submit "Get Forecast" %>
