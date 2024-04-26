@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateForecasts < ActiveRecord::Migration[7.1]
+class CreateForecasts < ActiveRecord::Migration[7.1] # :nodoc:
   def change
     create_table :forecasts do |t|
       t.string :zip

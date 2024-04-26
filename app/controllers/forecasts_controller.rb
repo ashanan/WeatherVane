@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Controller class handling actions around the forecast form
 class ForecastsController < ApplicationController
   def index
     @forecast = Forecast.new

@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# Service class encapsulating logic around storing and retrieving weather data
+# For additional details, see:
+#   [ADR 3](../architecture/adr/0003-encapsulate-cache-and-external-api-inside-a-service-class.md)
 class WeatherService
   @@data = {}
 

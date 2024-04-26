@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Model representing a weather forecast
 class Forecast < ApplicationRecord
   attr_reader :from_cache
 
