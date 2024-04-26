@@ -5,8 +5,22 @@ class Forecast < ApplicationRecord
   attr_reader :from_cache
 
   def initialize(args)
-    args = {} if args.nil?
-    @from_cache = args[:from_cache]
-    super(args.except(:from_cache))
+    default_args = { from_cache: true }
+    options = if args.nil?
+                default_args
+              else
+                default_args.merge(args)
+              end
+
+    @from_cache = options[:from_cache]
+    super(options.except(:from_cache))
+  end
+
+  after_initialize do
+    @from_cache ||= false
+  end
+
+  after_find do
+    @from_cache = true
   end
 end

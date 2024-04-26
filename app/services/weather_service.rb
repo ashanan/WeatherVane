@@ -4,11 +4,10 @@
 # For additional details, see:
 #   [ADR 3](../architecture/adr/0003-encapsulate-cache-and-external-api-inside-a-service-class.md)
 class WeatherService
-  @@data = {} # rubocop:disable Style/ClassVars (we can do this here because this is temporary code)
-
   def self.forecast(zip)
-    @@data[zip] = Forecast.new(temperature: rand(85), zip:) if @@data[zip].nil?
+    forecast = Forecast.find_by(zip:)
+    forecast = Forecast.create(temperature: rand(85), zip:, from_cache: false) if forecast.nil?
 
-    @@data[zip]
+    forecast
   end
 end

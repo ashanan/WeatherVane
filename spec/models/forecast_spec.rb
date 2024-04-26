@@ -8,14 +8,16 @@ RSpec.describe Forecast, type: :model do
   end
 
   describe '#from_cache' do
-    it 'returns true when initialized as coming from the cache' do
-      forecast = described_class.create(zip: 60_613, temperature: 75, from_cache: true)
-      expect(forecast.from_cache).to be_truthy
+    let(:zip) { '60613' }
+
+    it 'returns false when initialized as not coming from the cache' do
+      forecast = described_class.create(zip:, temperature: 75, from_cache: false)
+      expect(forecast.from_cache).to be_falsy
     end
 
-    it 'returns false by default' do |_variable|
-      forecast = described_class.create(zip: 60_613, temperature: 75)
-      expect(forecast.from_cache).to be_falsy
+    it 'returns true by default' do |_variable|
+      forecast = described_class.create(zip:, temperature: 75)
+      expect(forecast.from_cache).to be_truthy
     end
   end
 end
