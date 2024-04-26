@@ -7,6 +7,7 @@ class ForecastsController < ApplicationController
   end
 
   def create
+    # TODO: Add validation
     @response = WeatherService.forecast(params['forecast']['zip'])
     render 'show'
   end
