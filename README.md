@@ -10,6 +10,8 @@ WeatherVane is a demo weather app.
 
 Also recommended:
 - `rbenv`
+- [ADR tools](https://github.com/npryce/adr-tools)
+- A tool for working with [PlantUML](https://plantuml.com/)
 - imagination :)
 
 ## Installation
@@ -26,3 +28,11 @@ Run tests with `bundle exec rspec`.
 ## Linting
 
 Before merging to main, please make sure to run the linter and fix any violations: `bundle exec rubocop`
+
+## Architecture
+
+Architecture Decision Records (ADRs) and diagrams can be found in the architecture directory.
+
+### Sequence Diagram
+
+![architecture diagram](./architecture/architecture.png)
