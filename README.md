@@ -15,7 +15,7 @@ Also recommended:
 ## Installation
 
 1. After cloning the repo, navigate to the root and `bundle install` to install gem dependencies.
-2. Once that completes, set up the database by running `bundle exec rails db:setup`
+2. Once that completes, set up the database by running `bundle exec rails db:setup`.
 
 You should be good to go!  Run the app with `bundle exec rails s`.
 
