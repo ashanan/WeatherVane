@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 class WeatherService
-	@@data = {}
+  @@data = {}
 
-	def self.forecast(zip)
-		if @@data[zip].nil?
-			@@data[zip] = Forecast.new(temperature: rand(85), zip: zip)
-		end
+  def self.forecast(zip)
+    @@data[zip] = Forecast.new(temperature: rand(85), zip:) if @@data[zip].nil?
 
-		@@data[zip]
-	end
+    @@data[zip]
+  end
 end
