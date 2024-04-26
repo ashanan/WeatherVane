@@ -1,24 +1,28 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+WeatherVane is a demo weather app.
 
-Things you may want to cover:
+## Requirements
 
-* Ruby version
+- Ruby 3.3.1
+- `bundler`
+- `git`
 
-* System dependencies
+Also recommended:
+- `rbenv`
+- imagination :)
 
-* Configuration
+## Installation
 
-* Database creation
+1. After cloning the repo, navigate to the root and `bundle install` to install gem dependencies.
+2. Once that completes, set up the database by running `bundle exec rails db:setup`
 
-* Database initialization
+You should be good to go!  Run the app with `bundle exec rails s`.
 
-* How to run the test suite
+## Testing
 
-* Services (job queues, cache servers, search engines, etc.)
+Run tests with `bundle exec rspec`.
 
-* Deployment instructions
+## Linting
 
-* ...
+Before merging to main, please make sure to run the linter and fix any violations: `bundle exec rubocop`
