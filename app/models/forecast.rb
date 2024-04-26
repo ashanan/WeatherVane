@@ -23,4 +23,8 @@ class Forecast < ApplicationRecord
   after_find do
     @from_cache = true
   end
+
+  def minutes_since_creation
+    (created_at - DateTime.now) / -60
+  end
 end
