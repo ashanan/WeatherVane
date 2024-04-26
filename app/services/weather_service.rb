@@ -6,8 +6,12 @@
 class WeatherService
   def self.forecast(zip)
     forecast = Forecast.find_by(zip:)
-    forecast = Forecast.create(temperature: rand(85), zip:, from_cache: false) if forecast.nil?
+    forecast = Forecast.create(temperature: rand(85), zip:, from_cache: false) if get_new_data?(forecast)
 
     forecast
+  end
+
+  def self.get_new_data?(forecast)
+    forecast.nil? || forecast.minutes_since_creation > 30
   end
 end

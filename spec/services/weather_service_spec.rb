@@ -19,11 +19,20 @@ RSpec.describe WeatherService do
     end
 
     describe 'when the zip code requested is in the cache' do
-      it 'sets from_cache to true on the return object' do
+      before do
         described_class.forecast(zip)
-        forecast = described_class.forecast(zip)
+      end
 
+      it 'sets from_cache to true on the return object' do
+        forecast = described_class.forecast(zip)
         expect(forecast.from_cache).to be_truthy
+      end
+
+      it 'gets new data if the cached data is too old' do
+        travel(31.minutes) do
+          forecast = described_class.forecast(zip)
+          expect(forecast.from_cache).to be_falsy
+        end
       end
     end
   end
